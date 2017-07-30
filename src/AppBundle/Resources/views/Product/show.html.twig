@@ -5,7 +5,7 @@
 {% block body %}
 <h4>search results for: {{ search }}</h4>
 {% if products %}
-    <table>
+    <table class="table table-striped text-center">
         <tr>
             <td>photo</td>
             <td>category</td>
@@ -15,16 +15,18 @@
             <td>delete</td>
         </tr>
         {% for product in products %}
-        <tr>
-            <td><img src="{{ asset(product.image) }}" /></td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.title }}</td>
-            <td>{{ product.description }}</td>
-            <td><a href="/product/edit/{{ product.id }}">edit</a></td>
-            <td><a href="/product/delete/{{ product.id }}">x</a></td>
-        </tr>
+            <tr>
+                <td><img src="{{ asset(product.image) }}" /></td>
+                <td>{{ product.category }}</td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <a href="/product/edit/{{ product.id }}"><img src="{{ asset('img/edit.jpg') }}" class="table-img"></a>
+                </td>
+                <td><a href="/product/delete/{{ product.id }}">x</a></td>
+            </tr>
+        {% endfor %}
     </table>
-    {% endfor %}
 {% else %}
     nothing to display
 {% endif %}

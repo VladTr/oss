@@ -3,10 +3,9 @@
 {% block title %}AppBundle:Product:edit{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Product:edit page</h1>
-    {{ form_start(form, {'attr': {'class': 'my-form-class'} }) }}
+<h4>update product</h4>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
     {{ form_widget(form) }}
-    <input type="submit" value="update product"
-           class="btn btn-primary" />
+    <input type="submit" value="update product" class="btn btn-primary" />
     {{ form_end(form) }}
 {% endblock %}

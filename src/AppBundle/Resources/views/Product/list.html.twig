@@ -1,35 +1,45 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}AppBundle:Product:list{% endblock %}
+{% block title %}list of products{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Product:list page</h1>
-    <form action="/product/search" method="get">
-        <label for="search"></label>
-        <input type="text" id="search" name="search">
-        <input type="submit" value="search by title">
-    </form>
-    <table>
-        <tr>
-            <td>photo</td>
-            <td>category</td>
-            <td>title</td>
-            <td>description</td>
-            <td>edit</td>
-            <td>delete</td>
-        </tr>
-        {% for product in products %}
-            <tr>
-                <td><img src="{{ asset(product.image) }}" /></td>
-                <td>{{ product.category }}</td>
-                <td>{{ product.title }}</td>
-                <td>{{ product.description }}</td>
-                <td><a href="/product/edit/{{ product.id }}">edit</a></td>
-                <td><a href="/product/delete/{{ product.id }}">x</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-    <div class="navigation">
-        {{ knp_pagination_render(products) }}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+            <form action="/product/search" method="get">
+                <label for="search"></label>
+                <input type="text" id="search" name="search">
+                <input type="submit" value="search by title" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h4>list of products</h4>
+            <table class="table table-striped text-center">
+                <tr>
+                    <td>photo</td>
+                    <td>category</td>
+                    <td>title</td>
+                    <td>description</td>
+                    <td>edit</td>
+                    <td>delete</td>
+                </tr>
+                {% for product in products %}
+                    <tr>
+                        <td><img src="{{ asset(product.image) }}" /></td>
+                        <td>{{ product.category }}</td>
+                        <td>{{ product.title }}</td>
+                        <td>{{ product.description }}</td>
+                        <td>
+                            <a href="/product/edit/{{ product.id }}"><img src="{{ asset('img/edit.jpg') }}" class="table-img"></a>
+                        </td>
+                        <td><a href="/product/delete/{{ product.id }}">x</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <div class="navigation text-center">
+                {{ knp_pagination_render(products) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

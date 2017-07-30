@@ -3,10 +3,9 @@
 {% block title %}AppBundle:Product:add{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Product:add page</h1>
-    {{ form_start(form, {'attr': {'class': 'my-form-class'} }) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="create product"
-           class="btn btn-primary" />
+<h4>add a new product</h4>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
+    {{ form_widget(form, {'attr': {'class': 'form-horizontal'} } ) }}
+    <input type="submit" value="create product" class="btn btn-success" />
     {{ form_end(form) }}
 {% endblock %}
