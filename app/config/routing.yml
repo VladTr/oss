@@ -10,3 +10,7 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+
+product:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /product

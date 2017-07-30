@@ -1,0 +1,12 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Product:add{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Product:add page</h1>
+    {{ form_start(form, {'attr': {'class': 'my-form-class'} }) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="create product"
+           class="btn btn-primary" />
+    {{ form_end(form) }}
+{% endblock %}

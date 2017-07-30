@@ -1,0 +1,27 @@
+product:
+    path:     /
+    defaults: { _controller: AppBundle:Product:list }
+
+show:
+    path:     /show
+    defaults: { _controller: AppBundle:Product:show }
+
+add:
+    path:     /add
+    defaults: { _controller: AppBundle:Product:add }
+
+edit:
+    path:     /edit/{id}
+    defaults: { _controller: AppBundle:Product:edit }
+
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: AppBundle:Product:delete }
+
+list:
+    path:     /list
+    defaults: { _controller: AppBundle:Product:list }
+
+search:
+    path:     /search
+    defaults: { _controller: AppBundle:Product:search }

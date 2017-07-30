@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Product:show{% endblock %}
+
+{% block body %}
+<h4>search results for: {{ search }}</h4>
+{% if products %}
+    <table>
+        <tr>
+            <td>photo</td>
+            <td>category</td>
+            <td>title</td>
+            <td>description</td>
+            <td>edit</td>
+            <td>delete</td>
+        </tr>
+        {% for product in products %}
+        <tr>
+            <td><img src="{{ asset(product.image) }}" /></td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.title }}</td>
+            <td>{{ product.description }}</td>
+            <td><a href="/product/edit/{{ product.id }}">edit</a></td>
+            <td><a href="/product/delete/{{ product.id }}">x</a></td>
+        </tr>
+    </table>
+    {% endfor %}
+{% else %}
+    nothing to display
+{% endif %}
+{% endblock %}
