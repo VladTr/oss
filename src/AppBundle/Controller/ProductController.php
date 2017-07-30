@@ -70,10 +70,21 @@ class ProductController extends Controller
         return $this->redirect($this->generateUrl('product'));
     }
 
-    public function listAction()
+    public function listAction(Request $request)
     {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
-        return $this->render('AppBundle:Product:list.html.twig', array('products'=>$products));
+
+        /**
+         * @var $paginator \Knp\Component\Pager\Paginator
+         */
+        $paginator  = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $products,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 5)
+        );
+
+        return $this->render('AppBundle:Product:list.html.twig', array('products'=>$result));
     }
 
 
