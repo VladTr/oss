@@ -11,16 +11,16 @@ class UserAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('login', 'text')->add('password','text');
+        $formMapper->add('username', 'text')->add('password','text');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('login')->add('password');
+        $datagridMapper->add('username')->add('password');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('login')->addIdentifier('password');
+        $listMapper->addIdentifier('username')->addIdentifier('password');
     }
 }
