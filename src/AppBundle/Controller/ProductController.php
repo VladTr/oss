@@ -24,7 +24,7 @@ class ProductController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $product->getImage();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('img'), $fileName);
+            $file->move('uploads/img', $fileName);
             $product->setImage('uploads/img/'.$fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
@@ -47,7 +47,7 @@ class ProductController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $product->getImage();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('img'), $fileName);
+            $file->move('uploads/img', $fileName);
             $product->setImage('uploads/img/'.$fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($product);
