@@ -18,3 +18,13 @@ php bin/console doctrine:schema:update --force
 
 5. create user (username="admin", password="010601")
 php bin/console doctrine:fixtures:load
+
+**Comments**
+--------------
+Knp\Bundle\PaginatorBundle\KnpPaginatorBundle() - used for pagination
+(5 items per page)
+
+TODO
+--------------
+Handle errors
+Tests
